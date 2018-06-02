@@ -1,3 +1,13 @@
+<?php 
+session_start();
+if(isset($_SESSION['banco']) && empty($_SESSION['banco']) == FALSE){
+    
+} else {
+    header("Location: login.php");
+    exit;
+}
+
+?>
 <html>
 <head>
 	<title>Caixa Eletrônico</title>
