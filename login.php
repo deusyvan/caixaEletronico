@@ -1,6 +1,10 @@
 <?php 
 session_start();
 
+if(isset($_SESSION['agencia']) && empty($_SESSION['agencia']) == FALSE){
+    
+} 
+
 ?>
 <html>
 <head>
