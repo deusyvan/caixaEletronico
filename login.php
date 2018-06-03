@@ -13,6 +13,11 @@ if(isset($_SESSION['agencia']) && empty($_SESSION['agencia']) == FALSE){
     $sql->bindValue(":senha", @senha);
     $sql->execute();
     
+    if($sql->rowCount() > 0) {
+        $sql = $sql->fetch();
+        
+        
+    }
     
     
 } 
