@@ -36,6 +36,9 @@ if(isset($_SESSION['banco']) && empty($_SESSION['banco']) == FALSE){
 	<hr/>
 	
 	<h3>Movimentação/Extrato</h3>
+	
+	<a href="add-transacao.php">Adicionar Transação</a>	<br/><br/>
+	
 	<table border="1">
 		<tr>
 			<th>Data</th>
