@@ -47,8 +47,20 @@ if(isset($_SESSION['banco']) && empty($_SESSION['banco']) == FALSE){
 		  $sql->execute();
 		  
 		  if($sql->rowCount() > 0 ){
+		      //Adicionando movimentações item por item no loop
 		      foreach ($sql->fetchAll() as $item) {
-		          ;
+		          ?>
+		          	<tr>
+		          		<td><?php echo date('d/m/Y H:i', strtotime($item['data_operacao'])); ?></td>
+		          		<td>
+		          			<?php if($item['tipo'] == '0'):?>
+		          				<font color="green">R$ <?php echo $item['valor']; ?></font>
+		          			<?php else: ?>
+		          				<font color="red">- R$ <?php echo $item['valor']; ?></font>
+		          			<?php endif; ?>
+		          		</td>
+		          	</tr>
+		          <?php 
 		      }
 		  }
 		?>
