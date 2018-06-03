@@ -2,7 +2,9 @@
 session_start();
 
 if(isset($_SESSION['agencia']) && empty($_SESSION['agencia']) == FALSE){
-    
+    $agencia = addslashes($_POST['agencia']);
+    $conta = addslashes($_POST['conta']);
+    $senha = addslashes($_POST['senha']);
 } 
 
 ?>
