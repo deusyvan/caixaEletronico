@@ -2,7 +2,7 @@
 session_start();
 require 'config.php';
 
-if(isset($_SESSION['agencia']) && empty($_SESSION['agencia']) == FALSE){
+if(isset($_POST['agencia']) && empty($_POST['agencia']) == FALSE){
     $agencia = addslashes($_POST['agencia']);
     $conta = addslashes($_POST['conta']);
     $senha = md5(addslashes($_POST['senha']));
@@ -10,17 +10,17 @@ if(isset($_SESSION['agencia']) && empty($_SESSION['agencia']) == FALSE){
     $sql = $pdo->prepare("SELECT * FROM contas WHERE agencia = :agencia AND conta = :conta AND senha = :senha");
     $sql->bindValue(":agencia", $agencia);
     $sql->bindValue(":conta", $conta);
-    $sql->bindValue(":senha", @senha);
+    $sql->bindValue(":senha", $senha);
+    
     $sql->execute();
     
     if($sql->rowCount() > 0) {
         $sql = $sql->fetch();
         
-        $_SESSION['banco '] = $sql['id'];
+        $_SESSION['banco'] = $sql['id'];
         header("Location: index.php");
         exit;
-    }
-    
+    } 
     
 } 
 
