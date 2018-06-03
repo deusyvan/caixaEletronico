@@ -27,8 +27,10 @@ if(isset($_SESSION['banco']) && empty($_SESSION['banco']) == FALSE){
 </head>
 <body>
 	<h1>Banco XYZ</h1>
-	Agência: 0000<br/>
-	Conta: 0000<br/>
+	Titular: <?php echo $info['titular']?><br/>
+	Agência: <?php echo $info['agencia']; ?><br/>
+	Conta: <?php echo $info['conta']; ?><br/>
+	Saldo: <?php echo $info['saldo']?><br/>
 	<a href="sair.php">Sair</a>
 </body>
 </html>
