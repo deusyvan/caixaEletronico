@@ -46,7 +46,11 @@ if(isset($_SESSION['banco']) && empty($_SESSION['banco']) == FALSE){
 		  $sql->bindValue(":id_conta", $id);
 		  $sql->execute();
 		  
-		  
+		  if($sql->rowCount() > 0 ){
+		      foreach ($sql->fetchAll() as $item) {
+		          ;
+		      }
+		  }
 		?>
 		
 	</table>
