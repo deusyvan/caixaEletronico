@@ -11,7 +11,9 @@ if(isset($_SESSION['banco']) && empty($_SESSION['banco']) == FALSE){
     
     if ($sql->rowCount() > 0) {
         $info = $sql->fetch();
-        
+    } else {
+        header("Location: login.php");
+        exit;
     }
 } else {
     header("Location: login.php");
