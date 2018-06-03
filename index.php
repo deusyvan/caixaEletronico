@@ -32,5 +32,30 @@ if(isset($_SESSION['banco']) && empty($_SESSION['banco']) == FALSE){
 	Conta: <?php echo $info['conta']; ?><br/>
 	Saldo: <?php echo $info['saldo']?><br/>
 	<a href="sair.php">Sair</a>
+	
+	<hr/>
+	
+	<h3>Movimentação/Extrato</h3>
+	<table border="1">
+		<tr>
+			<th>Data</th>
+			<th>Valor</th>
+		</tr>
+		<?php 
+		  $sql = $pdo->prepare("SELECT * FROM historico WHERE id_conta = :id_conta");
+		  $sql->bindValue(":id_conta", $id);
+		  $sql->execute();
+		  
+		  
+		?>
+		
+	</table>
+	
+	
+	
+	
+	
+	
+	
 </body>
 </html>
