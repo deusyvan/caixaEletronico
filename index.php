@@ -1,6 +1,13 @@
 <?php 
 session_start();
+require 'config.php';
+
 if(isset($_SESSION['banco']) && empty($_SESSION['banco']) == FALSE){
+    $id = $_SESSION['banco'];
+    
+    $sql = $pdo->prepare("SELECT * FROM contas WHERE id = :id");
+    $sql->bindValue(":id", $id);
+    $sql->execute();
     
 } else {
     header("Location: login.php");
