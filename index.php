@@ -9,6 +9,10 @@ if(isset($_SESSION['banco']) && empty($_SESSION['banco']) == FALSE){
     $sql->bindValue(":id", $id);
     $sql->execute();
     
+    if ($sql->rowCount() > 0) {
+        $info = $sql->fetch();
+        
+    }
 } else {
     header("Location: login.php");
     exit;
