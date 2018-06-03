@@ -16,7 +16,9 @@ if(isset($_SESSION['agencia']) && empty($_SESSION['agencia']) == FALSE){
     if($sql->rowCount() > 0) {
         $sql = $sql->fetch();
         
-        
+        $_SESSION['banco '] = $sql['id'];
+        header("Location: index.php");
+        exit;
     }
     
     
